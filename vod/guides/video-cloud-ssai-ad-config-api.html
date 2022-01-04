@@ -1,381 +1,23 @@
-﻿<!doctype html>
-<html lang="es-es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="En este tema, aprenderá a utilizar la API de inserción de anuncios en el lado del servidor (SSAI) para crear y administrar configuraciones de anuncios.">
-  
-  <title>API de configuración de anuncios SSAI de Video Cloud</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">BRIGHTCOVE SSAI<sup>™</sup></span></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
+---
+title: 'API de configuración de anuncios SSAI de Video Cloud' descripción: En este tema, aprenderá a usar la API de inserción de anuncios del lado del servidor (SSAI) para crear y administrar configuraciones de anuncios.
+parent: Video-On-Demand
+---
+ <h1>Esta página se ha movido; se le dirigirá a la <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html">nueva ubicacion</a> en 3 segundos. ¡Actualiza tus marcadores!</h1>
+<script type="text/javascript">
+var t = setTimeout (function () { window.location.href = 'https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html'; }, 3000);
 </script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item">Vídeo bajo demanda<a href="/vod/guides/"></a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">API de configuración de anuncios SSAI de Video Cloud</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
-          
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-			<h5 class="submenu-header"><a href="/getting-started/index.html"><strong>+</strong> Empezar</a></h5>		
-				</select>
-        <nav class="sidenav" id="side_nav">
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Visión general de SSAI<a href="/getting-started/video-cloud-ssai-overview.html"></a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Guías de vídeo bajo demanda +<a href="/vod/guides/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de SSAI con Brightcove Player</a></li>
-                  
-                
-                  
-                    <li><a href="https://sdks.support.brightcove.com/features/implementing-server-side-ads-native-player-sdks.html">Implementación de SSAI con los SDK nativos</a></li>
-                  
-                
-                  
-                    <li>SSAI:<a href="/vod/guides/ssai-ad-block-detection-and-auto-failover.html"> Detección de bloques de anuncios y conmutación por error automática</a></li>
-                  
-                
-                  
-                    <li>API de configuración de anuncios SSAI de Video Cloud<a href="/vod/guides/video-cloud-ssai-ad-config-api.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/vod/guides/ad-error-beacons-ssai.html">Balizas de error de anuncio con SSAI</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Referencias de vídeo bajo demanda +<a href="/vod/references/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Referencia de API de SSAI<a href="/vod/references/reference.html"></a></li>
-                  
-                
-                  
-                    <li>Referencia de error de API SSAI<a href="/vod/references/ssai-api-error-reference.html"></a></li>
-                  
-                
-                  
-                    <li>Registro de cambios del complemento de anuncios del lado del servidor<a href="https://player.support.brightcove.com/plugins/changelog/server-side-ads-plugin-changelog.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Guías en vivo +<a href="/live/guides/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Implementación de SSAI en el Módulo Live</a></li>
-                  
-                
-                  
-                    <li><a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html">API Live de Brightcove: Inserción de anuncios en el lado del servidor (SSAI)</a></li>
-                  
-                
-                  
-                    <li>API en vivo:<a href="https://live.support.brightcove.com/live-api/ssai/live-api-cue-points-and-ad-beacons-ssai.html"> Puntos de referencia y balizas de anuncio con SSAI</a></li>
-                  
-                
-                  
-                    <li><a href="https://player.support.brightcove.com/advertising/client-side-preroll-with-live-ssai.html">Anuncios previos del lado del cliente con SSAI en vivo</a></li>
-                  
-                
-                  
-                    <li>Visión general:<a href="/live/guides/overview-player-enhancements-live-ssai.html"> Mejoras del jugador para SSAI en vivo</a></li>
-                  
-                
-                  
-                    <li><a href="/live/guides/implementing-player-enhancements-live-ssai.html">Implementación de Mejoras de Jugador para SSAI en Vivo</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Referencias en vivo +<a href="/live/references/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Referencia de API en vivo<a href="/live/references/reference.html"></a></li>
-                  
-                
-                  
-                    <li>API en vivo:<a href="https://live.support.brightcove.com/live-api/references/live-api-error-messages.html"> Mensajes de error</a></li>
-                  
-                
-                  
-                    <li>Notas de la versión de Live API<a href="https://live.support.brightcove.com/release-notes/live-api-release-notes.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">Soporte para desarrolladores <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>API de configuración de anuncios SSAI de Video Cloud</h1>
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar la API de inserción de anuncios en el lado del servidor (SSAI) para crear y administrar configuraciones de anuncios.</summary>
+  <summary>{{ page.description }}</summary>
 
 <section id="top" class="bcls-section">
-<p>Las configuraciones de anuncios definen varios aspectos de la reproducción SSAI, incluidas las llamadas publicitarias, los indicadores y otras opciones de configuración. Una cuenta puede tener varias configuraciones y actualmente las configuraciones no se pueden compartir entre cuentas.</p>
+<p>Las configuraciones de anuncios definen varios aspectos de la reproducción de SSAI, incluidas las llamadas de anuncios, balizas y otras opciones de configuración. Una cuenta puede tener varias configuraciones y las configuraciones actuales no se pueden compartir entre cuentas.</p>
 
-<aside class="bcls-aside bcls-aside--tip">Puede crear, enumerar y eliminar fácilmente configuraciones de anuncios desde Video Cloud Studio. Para obtener más información, consulte el documento <a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a> .</aside>
-
-<aside class="bcls-aside bcls-aside--information">Notas:
+<aside class="bcls-aside bcls-aside--tip">Puede crear, enumerar y eliminar fácilmente configuraciones de anuncios desde Video Cloud Studio. Para obtener más detalles, consulte la <a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a> documento.</aside> <aside class="bcls-aside bcls-aside--information">Notas:
 <ul>
-	<li>Para utilizar SSAI, su cuenta de Video Cloud debe estar configurada para Entrega dinámica y habilitada para SSAI.<a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html"></a> Póngase en contacto con su administrador de cuentas para empezar a usar esta función.</li>
-	<li>SSAI funciona con Vídeo bajo demanda (VOD) y admite la reproducción en vivo.</li>
-	<li>Para obtener una lista de limitaciones, consulte el documento <a href="/getting-started/video-cloud-ssai-overview.html#Limitations">Visión general de SSAI</a> .</li>
+	<li>Para utilizar SSAI, su cuenta de Video Cloud debe estar configurada para <a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html">Entrega dinámica</a> y habilitado para SSAI. Comuníquese con su gerente de cuenta para comenzar a usar esta función.</li>
+	<li>SSAI funciona con Video-on-Demand (VOD) y admite reproducción en vivo.</li>
+	<li>Para obtener una lista de limitaciones, consulte la <a href="/getting-started/video-cloud-ssai-overview.html#Limitations">Descripción general de SSAI</a> documento.</li>
 </ul>
 </aside>
 </section>
@@ -383,18 +25,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="General_information">Información general</h2>
 
-<p>La siguiente información se refiere a todas las solicitudes de API SSAI.</p>
+<p>La siguiente información pertenece a todas las solicitudes de API SSAI.</p>
 
 <h3>URL base</h3>
 
-<p>La URL base para la API SSAI es:</p>
+<p>La URL base de la API SSAI es:</p>
 
 <pre>
 <code class="language-http" translate="No">https://ssai.api.brightcove.com/v1</code></pre>
 
 <h4>Ruta de la cuenta</h4>
 
-<p>En todos los casos, se solicitarán una cuenta de Video Cloud específica. Por lo tanto, siempre agregará el término seguido de su ID de cuenta a la URL base:<code translate="No">accounts</code></p>
+<p>En todos los casos, se realizarán solicitudes para una cuenta de Video Cloud específica. Entonces, siempre agregará el término <code translate="No">accounts</code> seguido de la identificación de su cuenta a la URL base:</p>
 
 <pre>
 <code class="language-http" translate="No">https://ssai.api.brightcove.com/v1<strong>/accounts/</strong><span class="bcls-input">your account id</span></code></pre>
@@ -406,15 +48,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <pre>
 <code class="language-http" translate="No">Authorization: Bearer <span class="bcls-input">your access token</span></code></pre>
 
-<p>El es un token de acceso temporal de OAuth2 que debe obtenerse del servicio OAuth de Brightcove.<code translate="No">access_token</code> Para obtener información detallada sobre cómo obtener credenciales de cliente y usarlas para recuperar tokens de acceso, consulte la <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">descripción general de OAuth de Brightcove</a>.</p>
+<p> <code translate="No">access_token</code> Es un token de acceso temporal de OAuth2 que debe obtenerse del servicio OAuth de Brightcove. Para obtener detalles sobre cómo obtener credenciales de cliente y usarlas para recuperar tokens de acceso, consulte la <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">Descripción general de Brightcove OAuth</a>.</p>
 
 <h3>Operaciones</h3>
 
-<p>Cuando solicite credenciales de cliente, deberá especificar el tipo de acceso a la cuenta u operaciones que desea. A continuación se muestra una lista de las operaciones actualmente soportadas para la API SSAI:</p>
+<p>Cuando solicite credenciales de cliente, deberá especificar el tipo de acceso a la cuenta o las operaciones que desea. La siguiente es una lista de las operaciones admitidas actualmente para la API SSAI:</p>
 
 <ul>
-	<li>Datos de SSAI:
-	<p><code translate="No">video-cloud/ssai/read</code><br/> <code translate="No">video-cloud/ssai/all</code></p>
+	<li>Datos SSAI:
+	<p><code translate="No">video-cloud/ssai/read</code><br />
+	<code translate="No">video-cloud/ssai/all</code></p>
 	</li>
 </ul>
 </section>
@@ -425,32 +68,32 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>La API admite las siguientes solicitudes GET y PUT:</p>
 
 <ul>
-	<li><a href="#List_ad_configurations">Configuraciones de anuncios de lista</a></li>
-	<li><a href="#Create_an_ad_configuration">Crear una configuración de anuncio</a></li>
+	<li><a href="#List_ad_configurations">Lista de configuraciones de anuncios</a></li>
+	<li><a href="#Create_an_ad_configuration">Crea una configuración de anuncios</a></li>
 	<li><a href="#Get_ad_configuration_details">Obtener detalles de configuración de anuncios</a></li>
-	<li><a href="#Update_an_ad_configuration">Actualizar una configuración de anuncio</a></li>
+	<li><a href="#Update_an_ad_configuration">Actualizar una configuración de anuncios</a></li>
 </ul>
 
-<h3 id="List_ad_configurations">Configuraciones de anuncios de lista</h3>
+<h3 id="List_ad_configurations">Lista de configuraciones de anuncios</h3>
 
-<p>Enumera las configuraciones de anuncios definidas para una cuenta.</p>
+<p>Enumere las configuraciones de anuncios definidas para una cuenta.</p>
 
 <table class="bcls-table">
 	<tbody class="bcls-table__body">
 		<tr>
 			<th>Método</th>
-			<td>CONSEGUIR</td>
+			<td>OBTENER</td>
 		</tr>
 		<tr>
 			<th>URL</th>
-			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">su ID de cuenta</span>/ssai_configs</td>
+			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">el id de tu cuenta</span>/ssai_configs</td>
 		</tr>
 		<tr>
 			<th rowspan="2">Encabezados</th>
-			<td>Autorización: Portador <span class="bcls-input">su token de acceso</span></td>
+			<td>Autorización: Portador <span class="bcls-input">tu token de acceso</span></td>
 		</tr>
 		<tr>
-			<td>Tipo de contenido: aplicación/json</td>
+			<td>Tipo de contenido: aplicación / json</td>
 		</tr>
 	</tbody>
 </table>
@@ -458,7 +101,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>Respuesta de muestra:</p>
 
 <pre class="line-numbers">
-<code class="language-json" translate="No">[
+<code class="language-json" translate="No">{% raw %}[
   {
     "name": "VMAP Ad Server",
     "vmap_response_namespace": "bc",
@@ -474,36 +117,36 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       }
     }
   }
-]</code></pre>
+]{% endraw %}</code></pre>
 
-<h3 id="Create_an_ad_configuration">Crear una configuración de anuncio</h3>
+<h3 id="Create_an_ad_configuration">Crea una configuración de anuncios</h3>
 
-<p>Crear una configuración de anuncio para una cuenta.</p>
+<p>Cree una configuración de anuncios para una cuenta.</p>
 
 <table class="bcls-table">
 	<tbody class="bcls-table__body">
 		<tr>
 			<th>Método</th>
-			<td>PUBLICAR</td>
+			<td>CORREO</td>
 		</tr>
 		<tr>
 			<th>URL</th>
-			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">su ID de cuenta</span>/ssai_configs</td>
+			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">el id de tu cuenta</span>/ssai_configs</td>
 		</tr>
 		<tr>
 			<th rowspan="2">Encabezados</th>
-			<td>Autorización: Portador <span class="bcls-input">su token de acceso</span></td>
+			<td>Autorización: Portador <span class="bcls-input">tu token de acceso</span></td>
 		</tr>
 		<tr>
-			<td>Tipo de contenido: aplicación/json</td>
+			<td>Tipo de contenido: aplicación / json</td>
 		</tr>
 	</tbody>
 </table>
 
-<p>Cuerpo de la muestra:</p>
+<p>Cuerpo de muestra:</p>
 
 <pre class="line-numbers">
-<code class="language-json" translate="No">{
+<code class="language-json" translate="No">{% raw %}{
   "name": "VMAP Ad Server",
   "vmap_response_namespace": "bc",
   "ad_config": {
@@ -517,28 +160,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   "discontinuities": {
     "hls": [ "*" ]
   }
-}</code></pre>
+}{% endraw %}</code></pre>
 
 <h3 id="Get_ad_configuration_details">Obtener detalles de configuración de anuncios</h3>
 
-<p>Para una cuenta, obtenga los detalles de configuración del anuncio por ID de configuración.</p>
+<p>Para una cuenta, obtenga los detalles de configuración de anuncios por config Id.</p>
 
 <table class="bcls-table">
 	<tbody class="bcls-table__body">
 		<tr>
 			<th>Método</th>
-			<td>CONSEGUIR</td>
+			<td>OBTENER</td>
 		</tr>
 		<tr>
 			<th>URL</th>
-			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">ID de cuenta</span>/ssai_configs/<span class="bcls-input">su ID de configuración de anuncio</span></td>
+			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">tu ID de cuenta</span>/ssai_configs/<span class="bcls-input">tu id de configuración de anuncios</span></td>
 		</tr>
 		<tr>
 			<th rowspan="2">Encabezados</th>
-			<td>Autorización: Portador <span class="bcls-input">su token de acceso</span></td>
+			<td>Autorización: Portador <span class="bcls-input">tu token de acceso</span></td>
 		</tr>
 		<tr>
-			<td>Tipo de contenido: aplicación/json</td>
+			<td>Tipo de contenido: aplicación / json</td>
 		</tr>
 	</tbody>
 </table>
@@ -546,7 +189,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>Respuesta de muestra:</p>
 
 <pre class="line-numbers">
-<code class="language-json" translate="No">{
+<code class="language-json" translate="No">{% raw %}{
   "name": "VMAP Ad Server",
   "vmap_response_namespace": "bc",
   "config_id": "2ecc6beb-d6a4-4deb-a78e-37ac27e0f883",
@@ -596,11 +239,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     },
     "extend_beacon_guard_ttl": true
   }
-}</code></pre>
+}{% endraw %}</code></pre>
 
-<h3 id="Update_an_ad_configuration">Actualizar una configuración de anuncio</h3>
+<h3 id="Update_an_ad_configuration">Actualizar una configuración de anuncios</h3>
 
-<p>Actualizar la configuración de un anuncio mediante el identificador de configuración.</p>
+<p>Actualice la configuración de un anuncio por Id. De configuración.</p>
 
 <table class="bcls-table">
 	<tbody class="bcls-table__body">
@@ -610,17 +253,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<th>URL</th>
-			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">ID de cuenta</span>/ssai_configs/<span class="bcls-input">su ID de configuración de anuncio</span></td>
+			<td>https://ssai.api.brightcove.com/v1/accounts/<span class="bcls-input">tu ID de cuenta</span>/ssai_configs/<span class="bcls-input">tu id de configuración de anuncios</span></td>
 		</tr>
 		<tr>
 			<th rowspan="2">Encabezados</th>
-			<td>Autorización: Portador <span class="bcls-input">su token de acceso</span></td>
+			<td>Autorización: Portador <span class="bcls-input">tu token de acceso</span></td>
 		</tr>
 		<tr>
-			<td>Tipo de contenido: aplicación/json</td>
+			<td>Tipo de contenido: aplicación / json</td>
 		</tr>
 		<tr>
-			<th>Cuerpo de la muestra</th>
+			<th>Cuerpo de muestra</th>
 			<td>
 			<pre>
 <code class="language-json" translate="No">{
@@ -634,7 +277,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>Respuesta de muestra:</p>
 
 <pre class="line-numbers">
-<code class="language-json" translate="No">{
+<code class="language-json" translate="No">{% raw %}{
   "name": "VMAP Ad Server - updated",
   "vmap_response_namespace": "bc",
   "config_id": "2ecc6beb-d6a4-4deb-a78e-37ac27e0f883",
@@ -648,13 +291,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       "template": "http://solutions.brightcove.com/bcls/ads/simple-ad-rules?ip={{ system.ip_address }}&amp;vid={{ metadata.video_id }}&amp;ppid={{ system.unique_user_id }}&amp;p_vmap={{ url.p_vmap }}"
     }
   }
-}</code></pre>
+}{% endraw %}</code></pre>
 </section>
 
 <section class="bcls-section">
 <h2 id="Configuration_field_details">Detalles del campo de configuración</h2>
 
-<p>Esta tabla define los campos de configuración de anuncios utilizados en la sección de cuerpo de una solicitud.</p>
+<p>Esta tabla define los campos de configuración de anuncios que se utilizan en la sección del cuerpo de una solicitud.</p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
@@ -667,23 +310,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	<tbody class="bcls-table__body">
 		<tr>
 			<td><code translate="No">name</code></td>
-			<td>Cadena</td>
+			<td>Cuerda</td>
 			<td>Nombre legible por humanos</td>
 		</tr>
 		<tr>
 			<td><code translate="No">vmap_response_namespace</code></td>
-			<td>Cadena</td>
-			<td>Ajusta la salida de VMAP para que utilice el formato de espacio de nombres Unicorn Once heredado o para utilizar el nuevo formato de espacio de nombres de Brightcove.<br/> <br/> Valores: <code translate="No">uo</code>, <code translate="No">bc</code> Predeterminado: <code translate="No">bc</code></td>
+			<td>Cuerda</td>
+			<td>Ajusta la salida de VMAP para usar el formato de espacio de nombres Unicorn Once heredado o para usar el nuevo formato de espacio de nombres de Brightcove.<br />
+			<br />
+			Valores: <code translate="No">uo</code>, <code translate="No">bc</code> Predeterminado: <code translate="No">bc</code></td>
 		</tr>
 		<tr>
 			<td><code translate="No">description</code></td>
-			<td>Cadena</td>
+			<td>Cuerda</td>
 			<td>Descripción legible por humanos</td>
 		</tr>
 		<tr>
 			<td><code translate="No">ad_config.expected_ad_response</code></td>
-			<td>Cadena</td>
-			<td>Qué tecnología usar para analizar la respuesta. <sup><a href="#n1"> [ 1]</a></sup><br/> <br/> Valores:
+			<td>Cuerda</td>
+			<td>Qué tecnología usar para analizar la respuesta. <sup><a href="#n1">[1]</a></sup><br />
+			<br />
+			Valores:
 			<ul>
 				<li><code translate="No">dfp_ad_rules</code></li>
 				<li><code translate="No">dfp_vmap</code></li>
@@ -695,41 +342,63 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		<tr>
 			<td><code translate="No">ad_config.disable_server_beacons</code></td>
 			<td>Booleano</td>
-			<td>Marca si se deshabilita el disparo del lado del servidor de impresiones o balizas de anuncios<br/> <br/> Cuando se establece en <code translate="No">true</code>, SSAI no activará ningún indicador del lado del servidor e incluirá todos los indicadores en la salida de VMAP<br/> <br/> Cuando se establece en <code translate="No">false</code>, SSAI activará las balizas que puede incluir en el servidor e incluir cualquier que no pueda en la salida de VMAP</td>
+			<td>Indica si se debe deshabilitar la activación del lado del servidor de impresiones de anuncios / balizas<br />
+			<br />
+			Cuando se establece en <code translate="No">true</code>, SSAI no activará ninguna baliza del lado del servidor e incluirá todas las balizas en la salida de VMAP.<br />
+			<br />
+			Cuando se establece en <code translate="No">false</code>, SSAI activará las balizas a las que puede ser del lado del servidor e incluirá cualquiera que no pueda en la salida VMAP.</td>
 		</tr>
 		<tr>
 			<td><code translate="No">ad_config.round_up_cue_points</code></td>
 			<td>Booleano</td>
-			<td>Marca si se redondea al siguiente fotograma clave al elegir una posición cercana para insertar anuncios.<br/> <br/> Valor predeterminado: <code translate="No">false</code>, que elige el fotograma clave más cercano a la posición del anuncio deseada.</td>
+			<td>Indica si se redondea al siguiente fotograma clave al elegir una posición cercana para insertar anuncios.<br />
+			<br />
+			Valor predeterminado: <code translate="No">false</code>, que elige el fotograma clave más cercano a la posición de anuncio deseada.</td>
 		</tr>
 		<tr>
 			<td><code translate="No">ad_config.template_url.template</code></td>
-			<td>Cadena</td>
-			<td>Plantilla de etiqueta de anuncio. Variables disponibles descritas en una sección posterior.</td>
+			<td>Cuerda</td>
+			<td>Plantilla de etiqueta publicitaria. Variables disponibles descritas en una sección posterior.</td>
 		</tr>
 		<tr>
 			<td><code translate="No">ad_config.template_url.defaults</code></td>
 			<td>Objeto</td>
-			<td>Asignación de cadena a cadena que define el valor predeterminado para usar en el caso en que no se proporciona un parámetro url.<br/> <br/> Puede ser un literal <code translate="No">{ "url.foo": "SomeString" }</code><br/> <br/> O hacer referencia a otra variable <code translate="No">{ "url.foo": "{{ metadata.title_id }}" }</code></td>
+			<td>Mapa de cadena a cadena que define el valor predeterminado para usar en el caso de que no se proporcione un parámetro de URL.<br />
+			<br />
+			Puede ser literal <code translate="No">{ "url.foo": "SomeString" }</code><br />
+			<br />
+			O hacer referencia a otra variable <code translate="No">{% raw %}{ "url.foo": "{{ metadata.title_id }}" }{% endraw %}</code></td>
 		</tr>
 		<tr>
-			<td><code translate="No">discontinuities.dash</code> <sup><a href="#n2"> [ 2]</a></sup></td>
-			<td>[] Cadena</td>
-			<td>Controla qué versiones de guión se entregan manifiestos de guión de varios períodos.<br/> <br/> Establezca <code translate="No">["*"]</code> para entregar guión de varios períodos para todas las versiones Lista<br/> <br/> vacía para nunca<br/> <br/> Ejemplo: <code translate="No">["live-timeline"]</code> para entregar para la línea de tiempo en vivo pero no para hbbtv</td>
+			<td><code translate="No">discontinuities.dash</code> <sup><a href="#n2">[2]</a></sup></td>
+			<td>[]Cuerda</td>
+			<td>Controla qué versiones de tablero entregar manifiestos de tablero de períodos múltiples.<br />
+			<br />
+			Ajustado a <code translate="No">["*"]</code> para ofrecer un guión de varios períodos para todas las versiones<br />
+			<br />
+			Lista vacía para nunca<br />
+			<br />
+			Ejemplo: <code translate="No">["live-timeline"]</code> para entregar para línea de tiempo en vivo pero no para hbbtv</td>
 		</tr>
 		<tr>
-			<td><code translate="No">discontinuities.hls</code> <sup><a href="#n2"> [ 2]</a></sup></td>
-			<td>[] Cadena</td>
-			<td>Controla qué versiones de hls entregar con discontinuidades.<br/> <br/> Establezca <code translate="No">["*"]</code> para entrega con discontinuidades en todas las versiones de la lista HLS<br/> <br/> Empty for never<br/> <br/> Ejemplo: <code translate="No">["v4","v5"]</code> para entregar para v4 y v5 pero no para v3</td>
+			<td><code translate="No">discontinuities.hls</code> <sup><a href="#n2">[2]</a></sup></td>
+			<td>[]Cuerda</td>
+			<td>Controla qué versiones de hls entregar con discontinuidades.<br />
+			<br />
+			Ajustado a <code translate="No">["*"]</code> a la entrega con discontinuidades en todas las versiones de HLS<br />
+			<br />
+			Lista vacía para nunca<br />
+			<br />
+			Ejemplo: <code translate="No">["v4","v5"]</code> para entregar para v4 y v5 pero no para v3</td>
 		</tr>
 		<tr>
 			<td><code translate="No">beacon_templates</code></td>
-			<td>Array</td>
-			<td>Una matriz de balizas para disparar (ejemplo: balizas de terceros)</td>
+			<td>Formación</td>
+			<td>Una serie de balizas para disparar (ejemplo: balizas de terceros)</td>
 		</tr>
 		<tr>
 			<td><code translate="No">beacon_templates[].type</code></td>
-			<td>Cadena</td>
+			<td>Cuerda</td>
 			<td>
 			<p>Tipo de baliza para disparar. Valores:</p>
 
@@ -757,30 +426,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">beacon_templates[].template_url.template</code></td>
-			<td>Cadena</td>
-			<td>Plantilla URL de baliza</td>
+			<td>Cuerda</td>
+			<td>Plantilla de URL de baliza</td>
 		</tr>
 		<tr>
 			<td><code translate="No">extend_beacon_guard_ttl</code></td>
 			<td>Booleano</td>
-			<td>Establece la duración del TTL de Beacon Guard (Tiempo de vida) en la duración del TTL de sesión del contenido. De lo contrario, el valor predeterminado es 1 minuto.</td>
+			<td>Establece la duración del TTL (tiempo de vida) de Beacon Guard a la duración del TTL de la sesión del contenido. De lo contrario, el valor predeterminado es 1 minuto.</td>
 		</tr>
 	</tbody>
 </table>
 
 <aside class="bcls-aside bcls-aside--information">
-<p>Las siguientes notas hacen referencia a los campos de la tabla anterior.</p>
+<p>Las siguientes notas se refieren a los campos de la tabla anterior.</p>
 
-<p id="n1"><sup>[ 1]</sup> Cuando <code translate="No">expected_ad_response</code> se establece en <code translate="No">vast_3_0</code> , SSAI realiza una llamada VAST por cada punto de referencia de anuncio definido en Video Cloud. Para VMAP y reglas publicitarias, SSAI realiza solicitudes basadas en los saltos de anuncio definidos en la respuesta inicial al anuncio.</p>
+<p id="n1"><sup>[1]</sup> Cuando <code translate="No">expected_ad_response</code> se establece en <code translate="No">vast_3_0</code>, SSAI realiza una llamada VAST por cada punto de referencia de anuncio definido en Video Cloud. Para VMAP y reglas publicitarias, SSAI realiza solicitudes basadas en las pausas publicitarias definidas en la respuesta publicitaria inicial.</p>
 
-<p id="n2"><sup>[ 2]</sup> Las etiquetas de discontinuidad indican un cambio en la codificación de la velocidad de fotogramas entre los segmentos de vídeo de contenido y anuncio. Le dicen al sistema que reconstruya la cadena de renderizado. Para SSAI escalable, el reproductor de vídeo necesita poder reproducir HLS con etiquetas de discontinuidad y MPEG DASH que contenga varios periodos.</p>
+<p id="n2"><sup>[2]</sup> Las etiquetas de discontinuidad indican un cambio en la codificación de la velocidad de fotogramas entre el contenido de video y los segmentos de anuncios. Le dicen al sistema que reconstruya la cadena de renderizado. Para SSAI escalable, el reproductor de video debe poder reproducir HLS con etiquetas de discontinuidad y MPEG DASH que contenga múltiples períodos.</p>
 </aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="Ad_variables">Variables de anuncio</h2>
+<h2 id="Ad_variables">Variables publicitarias</h2>
 
-<p>Las variables en la <strong>url de la plantilla</strong> se identifican mediante llaves dobles (<code translate="No">{{ … }}</code> ) con espacios en blanco opcionales antes y después de la ruta de la variable. Todas las variables están precedidas por uno de los tres espacios de nombres:</p>
+<p>Las variables de la URL de la <strong>plantilla</strong> se identifican mediante llaves dobles (<code translate="No">{% raw %}{{ … }}{% endraw %}</code>) con espacios en blanco opcionales antes y después de la ruta de la variable. Todas las variables tienen como prefijo uno de los tres espacios de nombres:</p>
 
 <ul>
 	<li><a href="#System_variables">sistema</a></li>
@@ -788,11 +457,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	<li><a href="#Metadata_variables">metadatos</a></li>
 </ul>
 
-<h3 id="System_variables">Variables de sistema</h3>
+<h3 id="System_variables">Variables del sistema</h3>
 
-<p>Las variables de sistema son proporcionadas por el sistema SSAI y pueden ser información sobre el usuario final o variables auxiliares para generar valores aleatorios. Los valores deben estar codificados con URI antes de insertarse en las plantillas de URL.</p>
+<p>Las variables del sistema son proporcionadas por el sistema SSAI y pueden ser información sobre el usuario final o variables auxiliares para generar valores aleatorios. Los valores deben estar codificados en URI antes de insertarse en las plantillas de URL.</p>
 
-<p>Las variables del sistema se identifican como: <code translate="No">{{system.*}}</code></p>
+<p>Las variables del sistema se identifican como: <code translate="No">{% raw %}{{system.*}}{% endraw %}</code></p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
@@ -820,19 +489,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">timestamp_utc</code></td>
-			<td>Hora actual como marca de tiempo Unix</td>
+			<td>Hora actual como marca de tiempo de Unix</td>
 		</tr>
 		<tr>
 			<td><code translate="No">unique_user_id</code></td>
-			<td>MD5 (dirección_ip_+ user_agent)</td>
+			<td>MD5 (dirección_ip + agente_usuario)</td>
 		</tr>
 		<tr>
 			<td><code translate="No">unix_timestamp</code></td>
-			<td>Hora actual como marca de tiempo Unix (segundos)</td>
+			<td>Hora actual como marca de tiempo de Unix (segundos)</td>
 		</tr>
 		<tr>
 			<td><code translate="No">user_agent</code></td>
-			<td>Valor de encabezado User-Agent del usuario final</td>
+			<td>Valor del encabezado del agente de usuario del usuario final</td>
 		</tr>
 		<tr>
 			<td><code translate="No">uuid</code></td>
@@ -840,7 +509,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">x_forwarded_for</code></td>
-			<td>Valor de encabezado X-Forwarded-For del usuario final</td>
+			<td>Valor del encabezado X-Fordered-For del usuario final</td>
 		</tr>
 		<tr>
 			<td><code translate="No">xfp.correlator</code></td>
@@ -852,7 +521,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">xfp.unique_user_id</code></td>
-			<td>MD5 (dirección_ip_+ user_agent)</td>
+			<td>MD5 (dirección_ip + agente_usuario)</td>
 		</tr>
 		<tr>
 			<td><code translate="No">xfp.scor</code></td>
@@ -863,15 +532,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h3 id="URL_variables">Variables de URL</h3>
 
-<p>Los parámetros de consulta proporcionados en el punto de entrada VMap/manifiesto están disponibles en el espacio de <code translate="No">url</code> nombres. A diferencia de las variables bajo otros espacios de nombres, estos parámetros no están codificados por url cuando se insertan en la plantilla. Si los valores de las variables deben estar codificados en url yendo al proveedor de anuncios, deberán estar codificados con doble url en la url del punto de entrada.</p>
+<p>Los parámetros de consulta proporcionados en el punto de entrada VMAP / Manifiesto están disponibles en el <code translate="No">url</code> espacio de nombres. A diferencia de las variables en otros espacios de nombres, estos parámetros no están codificados en URL cuando se insertan en la plantilla. Si los valores de las variables deben codificarse en URL que van al proveedor de anuncios, deberán codificarse en URL doble en la URL del punto de entrada.</p>
 
-<p>Las variables URL se identifican como: <code translate="No">{{url.*}}</code></p>
+<p>Las variables de URL se identifican como: <code translate="No">{% raw %}{{url.*}}{% endraw %}</code></p>
 
 <h3 id="Metadata_variables">Variables de metadatos</h3>
 
-<p>Las variables de metadatos son aquellas que describen el vídeo de contenido, derivado de orígenes de datos de Video Cloud y Dynamic Delivery. Los valores están codificados por URL antes de ser insertados en las plantillas de URL.</p>
+<p>Las variables de metadatos son aquellas que describen el contenido del video, derivadas de las fuentes de datos de Video Cloud y Dynamic Delivery. Los valores se codifican en URL antes de insertarse en las plantillas de URL.</p>
 
-<p>Las variables de metadatos se identifican como: <code translate="No">{{metadata.*}}</code></p>
+<p>Las variables de metadatos se identifican como: <code translate="No">{% raw %}{{metadata.*}}{% endraw %}</code></p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
@@ -883,19 +552,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	<tbody class="bcls-table__body">
 		<tr>
 			<td><code translate="No">ad_keys</code></td>
-			<td>Cadena de texto de forma libre que se puede agregar y editar en el módulo multimedia de Video Cloud Studio</td>
+			<td>Cadena de texto de formato libre que se puede agregar y editar en el módulo de medios de Video Cloud Studio</td>
 		</tr>
 		<tr>
-			<td><code translate="No">custom_fields.{field_name}</code></td>
+			<td><code translate="No">{% raw %}custom_fields.{field_name}{% endraw %}</code></td>
 			<td>Campos personalizados de Video Cloud</td>
 		</tr>
 		<tr>
 			<td><code translate="No">long_description</code></td>
-			<td>Descripción larga de Video Cloud</td>
+			<td>Descripción detallada de Video Cloud</td>
 		</tr>
 		<tr>
 			<td><code translate="No">name</code></td>
-			<td>Nombre de vídeo de Video Cloud</td>
+			<td>Nombre del video de Video Cloud</td>
 		</tr>
 		<tr>
 			<td><code translate="No">reference_id</code></td>
@@ -903,7 +572,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">tags</code></td>
-			<td>Lista separada por comas de las etiquetas de Video Cloud del vídeo</td>
+			<td>Lista separada por comas de las etiquetas de Video Cloud para el video</td>
 		</tr>
 		<tr>
 			<td><code translate="No">title.duration</code></td>
@@ -911,18 +580,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		</tr>
 		<tr>
 			<td><code translate="No">title.id</code></td>
-			<td>ID de título de entrega dinámica</td>
+			<td>ID de título de Dynamic Delivery</td>
 		</tr>
 		<tr>
 			<td><code translate="No">title.name</code></td>
-			<td>Nombre del título de entrega dinámica</td>
+			<td>Nombre del título de Dynamic Delivery</td>
 		</tr>
 		<tr>
 			<td><code translate="No">video_id</code></td>
-			<td>ID de vídeo de Video Cloud</td>
+			<td>ID de video de Video Cloud</td>
 		</tr>
 		<tr>
-			<td colspan="2"><em>Otros pares clave/valor de Video Cloud también estarían aquí</em></td>
+			<td colspan="2"><em>Otros pares clave / valor de Video Cloud también estarían aquí</em></td>
 		</tr>
 	</tbody>
 </table>
@@ -931,27 +600,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="Entrypoint_URL_parameters">Parámetros de URL de punto de entrada</h2>
 
-<p>Hay un puñado de parámetros de consulta que se pueden agregar a la URL del punto de entrada SSAI (VMAP o manifiesto) para ajustar algunos comportamientos:</p>
+<p>Hay un puñado de parámetros de consulta que se pueden agregar a la URL del punto de entrada SSAI (VMAP o manifiesto) para modificar algunos comportamientos:</p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
 		<tr>
-			<th width="25%">Parámetros</th>
+			<th width="25%">Parámetro</th>
 			<th>Descripción</th>
 		</tr>
 	</thead>
 	<tbody class="bcls-table__body">
 		<tr>
 			<td><code translate="No">?rule=sd-only</code></td>
-			<td>Filtra cualquier representación de vídeo que tenga una altura inferior al umbral establecido en la configuración de la cuenta</td>
+			<td>Filtra cualquier reproducción de video que tenga una altura menor que el umbral establecido en la Configuración de la cuenta</td>
 		</tr>
 		<tr>
 			<td><code translate="No">?rule=discos-enabled</code></td>
-			<td>Habilita la reproducción con discontinuidades en HLS y MultiPeriodos en Dash. Tiene prioridad sobre la configuración de discontinuidades en la configuración de reproducción</td>
+			<td>Habilite la reproducción con discontinuidades en HLS y MultiPeriods en Dash. Tiene prioridad sobre la configuración de discontinuidades en Playback Config</td>
 		</tr>
 		<tr>
 			<td><code translate="No">?rule=discos-disabled</code></td>
-			<td>Deshabilite la reproducción con discontinuidades en HLS y MultiPeriodos en Dash. Tiene prioridad sobre la configuración de discontinuidades en la configuración de reproducción</td>
+			<td>Deshabilite la reproducción con discontinuidades en HLS y múltiples períodos en Dash. Tiene prioridad sobre la configuración de discontinuidades en Playback Config</td>
 		</tr>
 	</tbody>
 </table>
@@ -961,190 +630,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <h2 id="Configuration_notes">Notas de configuración</h2>
 
 <ol>
-	<li>La precarga de anuncios no se debe hacer con SSAI. La razón de esto es que si precarga el reproductor informará de una impresión de anuncio y probablemente las primeras balizas de cuartil antes de que se reproduzca el vídeo. Esto podría dar lugar a análisis publicitarios inexactos. Si configura SSAI en Studio, esto se hará automáticamente, pero si configura SSAI manualmente, debe ser consciente de este problema.</li>
-	<li>Si el reproductor web utiliza SSAI, y una de sus motivaciones para hacerlo es evitar los bloqueadores de anuncios, debe usar balizas del lado del servidor. Las balizas del lado del cliente no deben usarse, ya que se bloquearán.</li>
+	<li>La precarga de anuncios no debe realizarse con SSAI. La razón de esto es que si carga previamente, el reproductor informará una impresión de anuncio y probablemente las balizas del primer cuartil antes de que se reproduzca el video. Esto podría dar lugar a análisis de anuncios inexactos. Si configura SSAI en Studio, esto se hará automáticamente, pero si configura SSAI manualmente, debe tener en cuenta este problema.</li>
+	<li>Si el reproductor web usa SSAI, y una de sus motivaciones para hacerlo es evitar los bloqueadores de anuncios, debe usar balizas del lado del servidor. Las balizas del lado del cliente no deben usarse ya que estarán bloqueadas.</li>
 </ol>
 </section>
 
 <section class="bcls-section">
 <h2 id="Client_side_macros">Macros del lado del cliente</h2>
 
-<p>Utilice el <code translate="No">page</code> prefijo cuando desee utilizar macros de anuncios del lado del cliente. Estas macros permiten utilizar variables en las direcciones URL de servidor y VMAP. Para obtener más información sobre las <a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html#Ad_macros_and_the_serverUrl">macros de anuncios, consulte la sección Macros de anuncios y ServerURL</a> del documento Publicidad con el complemento IMA3.</p>
+<p>Utilizar el <code translate="No">page</code> prefijo cuando desee utilizar macros de anuncios del lado del cliente. Estas macros le permiten utilizar variables en VMAP y en las URL del servidor. Para obtener más información sobre la macro de <a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html#Ad_macros_and_the_serverUrl">anuncios, consulte las macros de anuncios y la</a> sección ServerURL del documento Publicidad con el complemento IMA3.</p>
 <!-- <p>
               When you prefix an Ad variable with , then a client-side macro will be appended to the end of the VMAP and SRC fields in the catalog response, when SSAI is being used. Then, the Brightcove player will run those strings through the client-side macro replacement logic.
             </p> -->
 
-<p>Las macros del lado cliente tienen el prefijo: <code translate="No">{{page.*}}</code></p>
+<p>Las macros del lado del cliente tienen el prefijo: <code translate="No">{% raw %}{{page.*}}{% endraw %}</code></p>
 
-<p>Por ejemplo, para agregar la variable <code translate="No">document.referrer</code> y una ventana <code translate="No">pageVariable</code> DOM, debería prefijarla con el prefijo <code translate="No">page</code> en la plantilla de anuncio de la siguiente manera:</p>
-
-<pre>
-<code class="language-html" translate="No">https://adserver.com/{{page.document.referrer}}/{{page.pageVariable.whateverIwant}}</code></pre>
-
-<p>La API de reproducción devuelve <code translate="No">document.referrer</code> y <code translate="No">pageVariable.whateverIwant</code> se agrega a las URL de VMAP y SRC. A continuación, el reproductor de Brightcove ejecuta su lógica de reemplazo de macros del lado del cliente para reemplazar los valores apropiados, antes de enviar la solicitud:</p>
+<p>Por ejemplo, para agregar el <code translate="No">document.referrer</code> y un <code translate="No">pageVariable</code> Variable de ventana DOM, los antepondría con <code translate="No">page</code> en la plantilla de anuncio de la siguiente manera:</p>
 
 <pre>
-<code class="language-html" translate="No">https://bolt-prefix/blah.vmap?document.referrer={document.referrer}&amp;pageVariable.whateverIwant={pageVariable.whateverIwant}</code></pre>
+<code class="language-html" translate="No">{% raw %}https://adserver.com/{{page.document.referrer}}/{{page.pageVariable.whateverIwant}}{% endraw %}</code></pre>
+
+<p>Vuelve la API de reproducción <code translate="No">document.referrer</code> y <code translate="No">pageVariable.whateverIwant</code> adjunto a las URL de VMAP y SRC. El reproductor de Brightcove luego ejecuta su lógica de reemplazo de macros del lado del cliente para reemplazar los valores apropiados, antes de enviar la solicitud:</p>
+
+<pre>
+<code class="language-html" translate="No">{% raw %}https://bolt-prefix/blah.vmap?document.referrer={document.referrer}&amp;pageVariable.whateverIwant={pageVariable.whateverIwant}{% endraw %}</code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Ad_error_beacons">Balizas de error de anuncio</h2>
+<h2 id="Ad_error_beacons">Balizas de error de anuncios</h2>
 
-<p>Los indicadores de error de anuncios VAST al usar SSAI pueden ser útiles para encontrar y solucionar problemas proactivamente con el flujo de trabajo de anuncios. Para obtener más información, consulte el documento <a href="/vod/guides/ad-error-beacons-ssai.html">Balizas de error de anuncio con SSAI</a> .</p>
+<p>Las balizas de error de anuncios de VAST cuando se usa SSAI pueden ser útiles para encontrar y solucionar problemas de manera proactiva con el flujo de trabajo de sus anuncios. Para obtener más detalles, consulte la <a href="/vod/guides/ad-error-beacons-ssai.html">Balizas de error de anuncios con SSAI</a> documento.</p>
 </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>
