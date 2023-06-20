@@ -1,405 +1,494 @@
-﻿<!doctype html>
-<html lang="es-es">
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Descripción general de Video Cloud SSAI</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="En este tema, aprenderá a utilizar la inserción de anuncios del lado del servidor (SSAI) de Brightcove con vídeos ingeridos para Dynamic Delivery.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="En este tema, aprenderá a utilizar la inserción de anuncios en el lado del servidor (SSAI) de Brightcove con vídeos ingeridos para la entrega dinámica.">
-  
-  <title>Descripción general de SSAI de Video Cloud</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">BRIGHTCOVE SSAI<sup>™</sup></span></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
 
 
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/getting-started/">Introducción</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Descripción general de SSAI de Video Cloud</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
           
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
           
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
           
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
           
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
           
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
           
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
           
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
           
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
           
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
           
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
           
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
           
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
           
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
           
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
           
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
           
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
           
         </select>
 
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-			<h5 class="submenu-header"><a href="/getting-started/index.html"><strong>+</strong> Empezar</a></h5>		
-				</select>
-        <nav class="sidenav" id="side_nav">
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Visión general de SSAI<a href="/getting-started/video-cloud-ssai-overview.html"></a></li>
-                  
-                
-                  
-                    <li><a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Guías de vídeo bajo demanda +<a href="/vod/guides/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de SSAI con Brightcove Player</a></li>
-                  
-                
-                  
-                    <li><a href="https://sdks.support.brightcove.com/features/implementing-server-side-ads-native-player-sdks.html">Implementación de SSAI con los SDK nativos</a></li>
-                  
-                
-                  
-                    <li>SSAI:<a href="/vod/guides/ssai-ad-block-detection-and-auto-failover.html"> Detección de bloques de anuncios y conmutación por error automática</a></li>
-                  
-                
-                  
-                    <li>API de configuración de anuncios SSAI de Video Cloud<a href="/vod/guides/video-cloud-ssai-ad-config-api.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/vod/guides/ad-error-beacons-ssai.html">Balizas de error de anuncio con SSAI</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Referencias de vídeo bajo demanda +<a href="/vod/references/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Referencia de API de SSAI<a href="/vod/references/reference.html"></a></li>
-                  
-                
-                  
-                    <li>Referencia de error de API SSAI<a href="/vod/references/ssai-api-error-reference.html"></a></li>
-                  
-                
-                  
-                    <li>Registro de cambios del complemento de anuncios del lado del servidor<a href="https://player.support.brightcove.com/plugins/changelog/server-side-ads-plugin-changelog.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Guías en vivo +<a href="/live/guides/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Implementación de SSAI en el Módulo Live</a></li>
-                  
-                
-                  
-                    <li><a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html">API Live de Brightcove: Inserción de anuncios en el lado del servidor (SSAI)</a></li>
-                  
-                
-                  
-                    <li>API en vivo:<a href="https://live.support.brightcove.com/live-api/ssai/live-api-cue-points-and-ad-beacons-ssai.html"> Puntos de referencia y balizas de anuncio con SSAI</a></li>
-                  
-                
-                  
-                    <li><a href="https://player.support.brightcove.com/advertising/client-side-preroll-with-live-ssai.html">Anuncios previos del lado del cliente con SSAI en vivo</a></li>
-                  
-                
-                  
-                    <li>Visión general:<a href="/live/guides/overview-player-enhancements-live-ssai.html"> Mejoras del jugador para SSAI en vivo</a></li>
-                  
-                
-                  
-                    <li><a href="/live/guides/implementing-player-enhancements-live-ssai.html">Implementación de Mejoras de Jugador para SSAI en Vivo</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Referencias en vivo +<a href="/live/references/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Referencia de API en vivo<a href="/live/references/reference.html"></a></li>
-                  
-                
-                  
-                    <li>API en vivo:<a href="https://live.support.brightcove.com/live-api/references/live-api-error-messages.html"> Mensajes de error</a></li>
-                  
-                
-                  
-                    <li>Notas de la versión de Live API<a href="https://live.support.brightcove.com/release-notes/live-api-release-notes.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">Soporte para desarrolladores <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
     </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
+  </div>
+</header><!--//header-->
 
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Empezando</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/video-cloud-ssai-overview.html" aria-current="page">Descripción general de SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://studio.support.brightcove.com/admin/general/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/video-cloud-ssai-ad-logs.html">Registro de seguimiento de anuncios SSAI</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/vod/guides/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Guías de video a pedido</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de SSAI con Brightcove Player</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://sdks.support.brightcove.com/features/implementing-server-side-ads-native-player-sdks.html">Implementar SSAI con los SDK nativos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/vod/guides/ssai-non-bc-players.html">Implementación de SSAI con reproductores que no son de Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/vod/guides/ssai-ad-block-detection-and-auto-failover.html">SSAI: Detección de bloques de anuncios y conmutación por error automática</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html">API de configuración de anuncios SSAI de Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/vod/guides/video-cloud-ssai-ad-tag-validation.html">Validación de etiquetas publicitarias SSAI de Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/vod/guides/ad-error-beacons-ssai.html">Balizas de error de anuncios con SSAI</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="https://apis.support.brightcove.com/ssai/references/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Referencias de video a pedido</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/ssai/references/reference.html">Referencia de la API de SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/ssai/references/ssai-api-error-reference.html">Referencia de errores de la API de SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://player.support.brightcove.com/plugins/changelog/server-side-ads-plugin-changelog.html">Registro de cambios del complemento de anuncios del lado del servidor</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/live/guides/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Guías en vivo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Implementación de SSAI en el módulo en vivo</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html">API de Brightcove Live: Inserción de anuncios en el servidor (SSAI)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/live-api/ssai/live-api-cue-points-and-ad-beacons-ssai.html">API en vivo: Puntos de referencia y balizas publicitarias con SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://player.support.brightcove.com/advertising/client-side-preroll-with-live-ssai.html">Anuncios pre-roll del lado del cliente con Live SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/live/guides/overview-player-enhancements-live-ssai.html">Descripción general: Mejoras del jugador para Live SSAI</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/live/guides/implementing-player-enhancements-live-ssai.html">Implementación de mejoras de jugador para Live SSAI</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/live/references/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Referencias en vivo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/live/references/reference.html">Referencia de API en vivo</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/live-api/references/live-api-error-messages.html">API en vivo: Mensajes de error</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://live.support.brightcove.com/release-notes/live-api-release-notes.html">Notas de la versión de la API en vivo</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Soporte para desarrolladores</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
 
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>Descripción general de SSAI de Video Cloud</h1>
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/getting-started/">Empezando</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Descripción general de Video Cloud SSAI</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>Descripción general de Video Cloud SSAI</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar la inserción de anuncios en el lado del servidor (SSAI) de Brightcove con vídeos ingeridos para la entrega dinámica.</summary>
+  <summary>En este tema, aprenderá a utilizar la inserción de anuncios del lado del servidor (SSAI) de Brightcove con vídeos ingeridos para Dynamic Delivery.</summary>
 
 <article class="bcls-article">
 <section class="bcls-section">
-<h2 id="Overview">Resumen</h2>
+<h2 id="Overview">Descripción general</h2>
 
-<p>El número de dispositivos capaces de reproducir video se expande todos los días. Los dispositivos conectados OTT, en particular, siguen reemplazando a la televisión tradicional a un ritmo rápido. En este entorno, puede resultar costoso y llevar mucho tiempo crear integraciones de reproductores cliente para cada plataforma de dispositivos y cada servidor de anuncios o red. A veces no es práctico crear jugadores cliente para ciertas plataformas en absoluto.</p>
+<p>La cantidad de dispositivos capaces de reproducir video aumenta cada día. Los dispositivos OTT conectados, en particular, continúan reemplazando a la televisión tradicional a un ritmo rápido. En este entorno, puede resultar costoso y llevar mucho tiempo crear integraciones de jugador cliente para cada plataforma de dispositivo y cada servidor de anuncios o red. A veces, no es práctico crear jugadores clientes para ciertas plataformas.</p>
 
-<p>Brightcove SSAI proporciona una forma sencilla de entregar vídeo compatible con anuncios a estos dispositivos, sin tener que crear y mantener costosas integraciones para cada dispositivo. Brightcove SSAI inserta anuncios directamente en la transmisión de contenido de vídeo para que funcione en cualquier dispositivo que pueda reproducir vídeo en streaming, junto con la segmentación de anuncios por sesión, las balizas del lado del cliente, los informes de visibilidad y la compatibilidad con los servicios publicitarios populares, todo ello dentro del vídeo online de Video Cloud líder en la industria plataforma.</p>
+<p>Brightcove SSAI proporciona una manera fácil de entregar video con publicidad a estos dispositivos, sin tener que construir y mantener costosas integraciones para cada dispositivo. Brightcove SSAI une los anuncios directamente en el flujo de contenido de video, por lo que funciona en cualquier dispositivo que pueda reproducir video en tiempo real, junto con la orientación de anuncios por sesión, balizas del lado del cliente, informes de visibilidad y compatibilidad con servicios publicitarios populares, todo dentro del la plataforma de video en línea líder en la industria de Video Cloud.</p>
 
 <aside class="bcls-aside bcls-aside--information">
 <p>Notas:</p>
 
 <ul>
-	<li>Para utilizar SSAI, su cuenta de Video Cloud debe estar configurada para Entrega dinámica y habilitada para SSAI.<a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html"></a> Póngase en contacto con su administrador de cuentas para empezar a usar esta función.</li>
-	<li>SSAI funciona con Vídeo bajo demanda (VOD) y admite la reproducción en vivo.</li>
-	<li>Para obtener una lista de limitaciones, consulte la <a href="#Limitations">siguiente sección</a>.</li>
+	<li>Para utilizar SSAI, su cuenta de Video Cloud debe configurarse para <a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html">Dynamic Delivery</a> y habilitarse para SSAI. Póngase en contacto con su gestor de cuentas para empezar a utilizar esta función.</li>
+	<li>SSAI funciona con Video-on-Demand (VOD) y admite reproducción en vivo.</li>
+  <li>
+    Si crea implementaciones personalizadas sobre las respuestas de Brightcove Playback API (PAPI), tenga en cuenta lo siguiente:
+      <ul>
+        <li>Con la inserción de anuncios del lado del servidor (SSAI), el manifiesto de miniaturas se encuentra en el VMAP en lugar de la respuesta PAPI.</li>
+        <li>Con no SSAI, el manifiesto de miniaturas se incluye en la respuesta PAPI.</li>
+      </ul>
+  </li>
+	<li>Para obtener una lista de limitaciones, consulte la <a href="#Limitations">sección siguiente</a>.</li>
 </ul>
 </aside>
 
-<h3>Flujo de proceso</h3>
+<h3>Flujo del proceso</h3>
 
-<p>Sin SSAI, los anuncios del lado del cliente, como IMA o FreeWheel utilizando VAST, VMAP y VPAID, no se reproducirán si hay un bloqueador de anuncios en el navegador.</p>
+<p>Sin SSAI, los anuncios del lado del cliente, como IMA o FreeWheel que usan VAST, VMAP y VPAID, no se reproducirán si hay un bloqueador de anuncios en el navegador.</p>
 
-<p>Con SSAI y failover automático con detección de bloques de anuncios habilitada, los anuncios siempre se reproducirán:</p>
+<p>Con SSAI y la conmutación por error automática con la detección de bloque de anuncios habilitada, sus anuncios siempre se reproducirán:</p>
 
 <ul>
 	<li>
-	<p>Cuando no hay bloqueador de anuncios, se reproducirán los anuncios del lado del cliente.</p>
+	<p>Cuando no hay un bloqueador de anuncios, se reproducirán los anuncios del lado del cliente.</p>
 	</li>
 	<li>
-	<p>Cuando se detecta un bloqueador de anuncios, se reproducirán los anuncios del lado del servidor.</p>
+	<p>Cuando se detecta un bloqueador de anuncios, se reproducirán anuncios del lado del servidor.</p>
 	</li>
 </ul>
 
-<p>Si no habilita la conmutación por error automática para SSAI, sólo se reproducirán los anuncios del lado del servidor.</p>
+<p>Si no habilita la conmutación por error automática para SSAI, solo se reproducirán los anuncios del lado del servidor.</p>
 </section>
 
 <section class="bcls-section">
@@ -408,39 +497,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>Los beneficios de SSAI son:</p>
 
 <ul>
-	<li><strong>Experiencia de usuario suave y similar a la TV: obtén</strong> un mayor compromiso sin el spinner, los errores y las congelación de los anuncios del lado del cliente. Simplemente juega a través - como en la TV normal!</li>
-	<li><strong>Alcance multipantalla</strong> - ¿Desea llegar a los dispositivos conectados OTT con VOD compatible con anuncios? Empuje su vídeo al segmento de visualización de vídeo de más rápido crecimiento y monetice fácilmente. SSAI funciona en cualquier dispositivo que pueda reproducir vídeo, Brightcove Player opcional!</li>
-	<li><strong>Recuperar las pérdidas de bloqueo de anuncios</strong> : recupera inmediatamente 10 -30% de ingresos perdidos para los bloqueadores de anuncios. SSAI no se puede bloquear como los anuncios del lado del cliente.</li>
-	<li><strong>Segmentación por sesión</strong> : transfiere etiquetas de metadatos de vídeo, información del dispositivo, identificadores de usuario o parámetros específicos de la aplicación con cada llamada de anuncio para permitir la segmentación de anuncios individualizada y obtener las tasas de CPM más altas para tu inventario.</li>
+	<li><strong>Experiencia de usuario fluida, similar a la de la televisión</strong> - Obtenga una mayor participación sin la ruleta, los errores y la congelación de los anuncios del lado del cliente. Simplemente se reproduce, ¡como en la televisión normal!</li>
+	<li><strong>Alcance multipantalla</strong> - ¿Quiere llegar a los dispositivos conectados OTT con VOD con publicidad? Lleve su video al segmento de visualización de videos de más rápido crecimiento y monetice fácilmente. SSAI funciona en cualquier dispositivo que pueda reproducir video, Brightcove Player es opcional.</li>
+	<li><strong>Recuperar pérdidas por bloqueo de anuncios</strong> - Recupere de inmediato un 10-30% de los ingresos perdidos por los bloqueadores de anuncios. SSAI no se puede bloquear como pueden hacerlo los anuncios del lado del cliente.</li>
+	<li><strong>Orientación por sesión</strong> - Pase etiquetas de metadatos de video, información del dispositivo, identificadores de usuario o parámetros específicos de la aplicación con cada llamada de anuncio para permitir la orientación de anuncios individualizada y obtener las tasas de CPM más altas para su inventario.</li>
 </ul>
 
-<p>SSAI con Brightcove Player ofrece estas capacidades adicionales (solo VOD):</p>
+<p>SSAI con Brightcove Player proporciona estas capacidades adicionales (solo VOD):</p>
 
 <ul>
-	<li><strong>Balizas del lado del cliente</strong> : informe de la impresión, el compromiso y la visibilidad del cliente, incluida la integración con bibliotecas de análisis de terceros.</li>
-	<li><strong>Desactivar la búsqueda de anuncios</strong> : deshabilita el reenvío rápido en los saltos de anuncios.</li>
-	<li><strong>Clic-Through en anuncios</strong> : el usuario puede hacer clic para obtener más información durante un anuncio.</li>
-	<li><strong>Superposiciones complementarias: los</strong> anuncios de vídeo lineales pueden tener imágenes de superposición complementarias.</li>
+	<li><strong>Balizas del lado del cliente</strong>: informe sobre la impresión, el compromiso y la visibilidad del cliente, incluida la integración con bibliotecas de análisis de terceros.</li>
+	<li><strong>Deshabilitar la búsqueda de anuncios</strong> - Desactive el avance rápido en las pausas publicitarias.</li>
+	<li><strong>Clics de anuncios</strong> - El usuario puede hacer clic para obtener más información durante un anuncio.</li>
+	<li><strong>Superposiciones complementarias</strong> - Los anuncios de video lineales pueden tener imágenes superpuestas complementarias.</li>
 </ul>
 </section>
 
 <section class="bcls-section">
-<h2 id="Client_platforms">Plataformas de cliente</h2>
+<h2 id="Client_platforms">Plataformas de clientes</h2>
 
-<p>Brightcove SSAI proporciona una forma sencilla de entregar vídeo compatible con anuncios a dispositivos OTT.</p>
+<p>Brightcove SSAI proporciona una manera fácil de entregar videos con publicidad a dispositivos OTT.</p>
 
 <aside class="bcls-aside bcls-aside--information">
-<p>Las API de Brightcove Player para Web y Dynamic Delivery también se pueden utilizar para muchas integraciones OTT personalizadas, pero <strong>estas integraciones no se admiten</strong> excepto mediante acuerdos de consultoría con Brightcove Global Services (BGS).</p>
-Las interacciones de API o las preguntas de funcionalidad del reproductor web se resolverán si se pueden demostrar problemas en un ejemplo sencillo que excluya la lógica de integración específica del dispositivo.</aside>
+<p>Brightcove Player para web y API de entrega dinámica también se puede utilizar para muchas integraciones OTT personalizadas, pero <strong>estas integraciones no son compatibles</strong> excepto a través de acuerdos de consultoría con Brightcove Global Services (BGS).</p>
+Las interacciones de API o las preguntas de funcionalidad del reproductor web se abordarán si se pueden demostrar los problemas en un ejemplo sencillo que excluye la lógica de integración específica del dispositivo.</aside>
 
-<p>La siguiente tabla muestra el tipo de integración de reproducción para diferentes ejemplos OTT:</p>
+<p>La siguiente tabla muestra el tipo de integración de reproducción para diferentes ejemplos de OTT:</p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
 		<tr>
 			<th>Dispositivo</th>
-			<th>¿Soporta?</th>
-			<th>¿Está disponible la integración BGS?</th>
+			<th>¿Soportado?</th>
+			<th>¿Integración BGS disponible?</th>
 			<th>Tipo de integración</th>
 			<th>Notas</th>
 		</tr>
@@ -457,21 +546,21 @@ Las interacciones de API o las preguntas de funcionalidad del reproductor web se
 			<td>Android TV</td>
 			<td>Sí</td>
 			<td>Sí</td>
-			<td>Brightcove Native SDK para Android<sup><a href="#n1"> [1]</a></sup></td>
-			<td>Android 6.0+</td>
+			<td>SDK nativo de Brightcove para Android<sup><a href="#n1"> [1]</a></sup></td>
+			<td>Android 6.0 o superior</td>
 		</tr>
 		<tr>
-			<td>Fire TV</td>
+			<td>TV de fuego</td>
 			<td>Sí</td>
 			<td>Sí</td>
-			<td>Brightcove Native SDK para Android<sup><a href="#n1"> [1]</a></sup></td>
+			<td>SDK nativo de Brightcove para Android<sup><a href="#n1"> [1]</a></sup></td>
 			<td>FireOS 5.0+</td>
 		</tr>
 		<tr>
-			<td>Jugador Nvidia, Escudo Nvidia</td>
+			<td>Nvidia Player, Nvidia Shield</td>
 			<td>Sí</td>
 			<td>Sí</td>
-			<td>Brightcove Native SDK para Android<sup><a href="#n1"> [1]</a></sup></td>
+			<td>SDK nativo de Brightcove para Android<sup><a href="#n1"> [1]</a></sup></td>
 			<td>ejecuta Android TV</td>
 		</tr>
 		<tr>
@@ -486,7 +575,7 @@ Las interacciones de API o las preguntas de funcionalidad del reproductor web se
 			<td>Sí</td>
 			<td>Sí</td>
 			<td>Web<sup><a href="#n1"> [2]</a></sup></td>
-			<td>Integración proporcionada a través del <a href="https://player.support.brightcove.com/plugins/beta-chromecast-plugin-brightcove-player.html">complemento Chromecast de Brightcove Player</a></td>
+			<td>Integración proporcionada a través del <a href="https://player.support.brightcove.com/plugins/chromecast-plugin-brightcove-player.html">Complemento de Chromecast Brightcove Player</a></td>
 		</tr>
 		<tr>
 			<td>Samsung Smart TV (Tizen)</td>
@@ -500,7 +589,7 @@ Las interacciones de API o las preguntas de funcionalidad del reproductor web se
 			<td>No</td>
 			<td>Sí</td>
 			<td>API personalizada<sup><a href="#n1"> [3]</a></sup></td>
-			<td>Cualquier dispositivo que pueda reproducir una secuencia HLS o DASH</td>
+			<td>Cualquier dispositivo que pueda reproducir una transmisión HLS o DASH</td>
 		</tr>
 	</tbody>
 </table>
@@ -508,255 +597,268 @@ Las interacciones de API o las preguntas de funcionalidad del reproductor web se
 <aside class="bcls-aside bcls-aside--tip">
 <p>Consulte los siguientes documentos para obtener detalles sobre cómo implementar SSAI con cada plataforma.</p>
 
-<p id="n1"><sup>[ 1]</sup> <a href="https://sdks.support.brightcove.com/features/implementing-server-side-ads-native-player-sdks.html">Implementación de anuncios del lado del servidor con los SDK del reproductor nativo</a>: Anuncios del lado del servidor con dispositivos móviles y TV conectada</p>
+<p id="n1"><sup>[1]</sup> <a href="https://sdks.support.brightcove.com/features/implementing-server-side-ads-native-player-sdks.html">Implementación de anuncios del lado del servidor con los SDK del reproductor nativo</a>: Anuncios del lado del servidor con dispositivos móviles y TV conectada</p>
 
-<p id="n2"><sup>[ 2]</sup> <a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de anuncios del lado del servidor con Brightcove Player</a>: Anuncios del lado del servidor con Brightcove Player para web</p>
+<p id="n2"><sup>[2]</sup> <a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de anuncios del lado del servidor con Brightcove Player</a>: Anuncios del lado del servidor con Brightcove Player para web</p>
 
-<p id="n3"><sup>[ 3]</sup> <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html">Configuración de SSAI</a> y <a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#Video_request_with_SSAI">uso de la API de tiempo de ejecución</a>: Anuncios del lado del servidor mediante una integración de API personalizada (sin reproductor de Brightcove)</p>
+<p id="n3"><sup>[3]</sup> <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html">Configuración SSAI</a> y <a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#Video_request_with_SSAI">Usando la API en tiempo de ejecución</a>: Anuncios del lado del servidor que utilizan una integración API personalizada (sin reproductor Brightcove)</p>
 </aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="Session_based_targeting">Orientación basada en las sesiones</h2>
+<h2 id="Session_based_targeting">Segmentación basada en sesiones</h2>
 
-<p>Los anuncios pueden segmentarse a diferentes plataformas, sitios web, aplicaciones o en función de otros criterios conocidos en tiempo de reproducción, evaluados cuando se produce la sesión de reproducción individual. Puede utilizar etiquetas de anuncio independientes para particionar los distintos entornos de reproducción de anuncios o utilizar una única etiqueta de anuncio con macros de anuncios.</p>
+<p>Los anuncios se pueden orientar a diferentes plataformas, sitios, aplicaciones o basarse en otros criterios conocidos en el tiempo de reproducción, evaluados cuando ocurre la sesión de reproducción individual. Puede utilizar etiquetas publicitarias independientes para dividir sus diferentes entornos de reproducción de anuncios o puede utilizar una sola etiqueta publicitaria con macros publicitarias.</p>
 
-<p>Las macros se evalúan en el momento de la solicitud de anuncio, por lo que cada vez que se reproduce un vídeo, y pueden hacer referencia a variables pasadas desde el cliente o ser insertadas por el servicio SSAI en función de metadatos de vídeo o información de encabezado de solicitud HTTP. Para obtener más información sobre cómo funcionan las macros con SSAI de Brightcove, consulte la <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html">guía de configuración de SSAI</a>.</p>
+<p>Las macros se evalúan en el momento de la solicitud de anuncios, por lo que cada vez que se reproduce un video, y pueden hacer referencia a variables pasadas desde el cliente o ser insertadas por el servicio SSAI según los metadatos del video o la información del encabezado de la solicitud HTTP. Para obtener más detalles sobre cómo funcionan las macros con Brightcove SSAI, consulte la <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html">Guía de configuración SSAI</a>.</p>
 
-<aside class="bcls-aside bcls-aside--information">SSAI es una excelente manera de evitar bloqueadores de anuncios en la web. Si desea utilizar SSAI con Brightcove Player, pero desea seguir utilizando tecnologías del lado del cliente, como las creatividades de VPAID cuando no están bloqueadas, intente habilitar nuestra <a href="https://ssai.support.brightcove.com/vod/guides/ssai-ad-block-detection-and-auto-failover.html">función de detección automática de bloques de anuncios y conmutación por error</a> .</aside>
+<aside class="bcls-aside bcls-aside--information">SSAI es una excelente manera de evitar los bloqueadores de anuncios en la web. Si desea utilizar SSAI con Brightcove Player pero desea seguir utilizando tecnologías del lado del cliente como las creatividades de VPAID cuando no están bloqueadas, intente habilitar nuestra función de detección <a href="/vod/guides/ssai-ad-block-detection-and-auto-failover.html">automática de bloques de anuncios y conmutación por error</a>.</aside>
 </section>
 
 <section class="bcls-section">
 <h2 id="Viewability">Visibilidad</h2>
 <h3>Transcodificación</h3>
 <p>
-Antes de que un anuncio se pueda ver, primero debe ser transcodificado. Luego, se puede coser en la corriente. Esto también se aplica a la segmentación basada en sesiones.
+Antes de que un anuncio sea visible, primero debe transcodificarse. Luego, se puede coser en la corriente. Esto también se aplica a la segmentación basada en sesiones.
 </p>
 <p>
 	Por ejemplo, si tiene dos anuncios, A y B, para una configuración de anuncio:
 </p>
 <ul>
 	<li>
-    El usuario 1 obtiene el anuncio A: Comienza la transcodificación; el anuncio no está disponible para el usuario 1
+    El usuario 1 obtiene el anuncio A: Se inicia la transcodificación; el anuncio no está disponible para el usuario 1
 	</li>
 	<li>
-    El usuario 2 recibe el anuncio A (unos minutos más tarde): Dado que la transcodificación ha finalizado para el anuncio A, ven el anuncio
+    El usuario 2 obtiene el anuncio A (unos minutos más tarde): Dado que la transcodificación del anuncio A ha finalizado, ven el anuncio
 	</li>
 	<li>
-    El usuario 1 obtiene el anuncio B: Comienza la transcodificación; el anuncio no está disponible para el usuario 1
+    El usuario 1 obtiene el anuncio B: Se inicia la transcodificación; el anuncio no está disponible para el usuario 1
 	</li>
 	<li>
-    El usuario 3 obtiene el anuncio A: Dado que la transcodificación ha finalizado para el anuncio A, ven el anuncio
+    El usuario 3 obtiene el anuncio A: Dado que la transcodificación del anuncio A ha finalizado, ven el anuncio
 	</li>
 	<li>
-    El usuario 4 obtiene el anuncio B: Dado que la transcodificación ha finalizado para el anuncio B, ven el anuncio
+    El usuario 4 obtiene el anuncio B: Dado que la transcodificación del anuncio B ha finalizado, ven el anuncio
 	</li>
 </ul>
 <p>
-	Los anuncios no dependen del contenido. Son dependientes de la representación. Por lo tanto, en el ejemplo anterior, si el Usuario 2 está viendo contenido que tiene la misma representación establecida que la que el usuario 1 ha visto, obtendrá el anuncio A. Esto significa que a medida que se cargue contenido nuevo, normalmente no es necesario volver a transcodificar ningún anuncio.
+	Los anuncios no dependen del contenido. Dependen de la reproducción. Por lo tanto, en el ejemplo anterior, si el Usuario 2 está viendo contenido que tiene la misma representación configurada que el Usuario 1, obtendrá el Anuncio A. Esto significa que a medida que se carga contenido nuevo, normalmente no es necesario volver a codificar ningún anuncio.
 </p>
 
-<h3>Métricas de terceros</h3>
-<p>Las métricas de terceros y los sistemas de visibilidad funcionan con SSAI de Brightcove utilizando balizas del lado del cliente o del lado del servidor. El Reproductor de Brightcove para web y los reproductores SDK emiten eventos del lado del cliente que pueden utilizar los plugins del lado del cliente para informar directamente. Varios proveedores han actualizado la visibilidad y los complementos de métricas para recibir estos datos. Póngase en contacto con su gestor de cuenta para obtener más información.</p>
+<h3>métricas de terceros</h3>
+<p>Las métricas y los sistemas de visibilidad de terceros funcionan con Brightcove SSAI utilizando balizas del lado del cliente o del servidor. Brightcove Player para web y los reproductores SDK emiten eventos del lado del cliente que los complementos del lado del cliente pueden utilizar para informar directamente. Varios proveedores han actualizado los complementos de visibilidad y métricas para recibir estos datos; comuníquese con su gerente de cuenta para obtener más información.</p>
 
-<p><a href="https://player.support.brightcove.com/advertising/ad-events-and-ad-objects.html">Obtenga más información sobre los eventos publicitarios comunes del lado del cliente.</a></p>
+<p><a href="https://player.support.brightcove.com/advertising/ad-events-and-ad-objects.html">Obtenga más información sobre los eventos publicitarios habituales del lado del cliente.</a></p>
 
-<p>También puede configurar SSAI para emitir eventos desde el servidor en varios puntos durante la transmisión.</p>
+<p>También puede configurar SSAI para que emita eventos desde el servidor en varios puntos durante la transmisión.</p>
 
-<p><a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html#Configuration_field_details">Consulte plantillas de balizas en la documentación de detalles del campo de configuración.</a></p>
+<p><a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html#Configuration_field_details">Consulte las plantillas de balizas en la documentación de detalles del campo de configuración.</a></p>
 </section>
 
 <section class="bcls-section">
-<h2 id="Prerequisites">Requisitos</h2>
+<h2 id="Prerequisites">Requisitos previos</h2>
 
 <p>SSAI requiere Brightcove Dynamic Delivery. Esto significa que debe hacer lo siguiente:</p>
 
 <ol>
-	<li>Póngase en contacto con su administrador de cuenta para habilitar su cuenta para Dynamic Delivery y SSAI.</li>
-	<li>Ingiere uno o más vídeos nuevos o retranscodifique los antiguos utilizando un perfil de ingesta de entrega dinámica. Para obtener más información, consulte el documento <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html#ingestProfile">Visión general: <span translate="No">Dynamic Ingest API</span> para entrega dinámica</a> .</li>
+	<li>Comuníquese con su gerente de cuenta para habilitar su cuenta para Dynamic Delivery y SSAI.</li>
+	<li>Ingesta uno o más videos nuevos o vuelve a codificar los antiguos mediante un perfil de ingesta de Dynamic Delivery. Para obtener más detalles, consulte la <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html#ingestProfile">Descripción general: <span translate="No">Dynamic Ingest API</span> para entrega dinámica</a> documento.</li>
 </ol>
 </section>
 
 <section class="bcls-section">
 <h2 id="Limitations">Limitaciones</h2>
 
-<p>Tenga en cuenta las siguientes limitaciones al usar el plugin SSAI:</p>
+<p>Tenga en cuenta las siguientes limitaciones al utilizar el complemento SSAI:</p>
 
 <ul>
-	<li>El complemento SSAI sólo es compatible con Brightcove Player v6.8.0 y versiones posteriores. No se ofrecerá soporte para v5.</li>
-	<li>SSAI requiere que el contenido de vídeo tenga audio, pero no admite <a href="https://player.support.brightcove.com/general/multiple-audio-tracks.html">varias pistas de audio</a>.</li>
-	<li>La primera vez que el anuncio sea visto por nuestro sistema, no se reproducirá hasta que esté transcodificado y listo para su entrega.</li>
+	<li>El complemento SSAI solo es compatible con Brightcove Player v6.8.0 y versiones posteriores. No se ofrecerá soporte para v5.</li>
+	<li>SSAI requiere que su contenido de video tenga audio, pero no es compatible <a href="https://player.support.brightcove.com/general/multiple-audio-tracks.html">Varias pistas de audio</a>.</li>
+	<li>La primera vez que nuestro sistema ve el anuncio, no se reproducirá hasta que se transcodifique y esté listo para publicarse.</li>
   <li>
-    Al reproducir un vídeo compartido con SSAI, el reemplazo de macros SSAI utilizará los metadatos del vídeo principal en lugar del vídeo secundario. SSAI también omitirá la búsqueda de anuncios si el vídeo principal está marcado como, incluso si el vídeo secundario está etiquetado como.<code translate="No">Advertising='Free'</code><code translate="No">Ad Supported</code>
+    Al reproducir un video compartido con SSAI, el reemplazo de macro SSAI usará los metadatos del video principal en lugar del video secundario. SSAI también omitirá la búsqueda de anuncios si el vídeo principal está marcado como <code translate="No">Advertising='Free'</code>, incluso si el vídeo secundario está etiquetado como <code translate="No">Ad Supported</code>.
   </li>
 </ul>
 </section>
 
 <section class="bcls-section">
-<h2 id="Getting_started">Introducción</h2>
+<h2 id="Getting_started">Empezando</h2>
 
-<p>Para empezar a usar SSAI con vídeos ingeridos para la entrega dinámica, siga estos pasos:</p>
+<p>Para comenzar a usar SSAI con videos ingeridos para Dynamic Delivery, siga estos pasos:</p>
 
 <ol class="bcls-tasklist">
-	<li>Obtén una etiqueta de anuncio de tu proveedor de anuncios o del equipo de operaciones publicitarias. Asegúrese de que la demanda publicitaria asociada a esta etiqueta está configurada para no devolver bloques de anuncios de VPAID.</li>
+	<li>Obtenga una etiqueta publicitaria de su proveedor de anuncios o del equipo de operaciones publicitarias. Asegúrese de que la demanda de publicidad asociada con esta etiqueta esté configurada para no devolver bloques de anuncios VPAID.</li>
 	<!-- <li>
                Some customers won’t understand this request or know how to do it. They’ll have to talk with their ad server provider and ask them. This may take a few attempts.
             </li> -->
 	<li>
-	<p>Con un navegador web, solicite la etiqueta de anuncio pegándola en la barra de direcciones. Si hay parámetros de reemplazo, puede probar la solicitud con valores falsos o dejar los nombres de las variables en para probar.</p>
+	<p>Con un navegador web, solicite la etiqueta publicitaria pegándola en la barra de direcciones. Si hay parámetros de reemplazo, puede probar la solicitud con valores falsos o dejar los nombres de las variables para probar.</p>
 
 	<ul>
-		<li>Si recibes una respuesta de error, primero revisa la etiqueta del anuncio y asegúrate de que es correcta. Es posible que tenga que probar valores falsos para macros/variables.</li>
-		<li>Mira el tipo de respuesta. Asegúrese de que es una respuesta de Reglas publicitarias de DFP, que muestra todos los saltos de anuncios, que enlaza a documentos VAST para anuncios dentro de cada pod. La respuesta debe decir <code translate="No">VAST</code> o <code translate="No">VMAP</code> en las primeras líneas del XML. Otro XML de DFP es probablemente lo que llaman <strong>XML de reglas publicitarias</strong>.</li>
-		<li>Si no utilizas FreeWheel, puedes seguir las redirecciones manualmente copiando y pegando los valores en la barra de direcciones de tu navegador. Busque <code translate="No">MediaFiles</code> elementos que apunten a fuentes de vídeo compatibles. Está buscando archivos de origen de vídeo MP4 o HLS (.m3u8).</li>
-		<li>Si la respuesta del anuncio apunta a un archivo que termina en <code translate="No">.js</code>, se trata de un bloque de anuncios VPAID y no funcionará con Brightcove SSAI.</li>
+		<li>Si recibe una respuesta de error, primero revise la etiqueta de anuncio y asegúrese de que sea correcta. Puede que tenga que probar valores falsos para macros / variables.</li>
+		<li>Mira el tipo de respuesta. Asegúrese de que sea una respuesta de reglas publicitarias de DFP, que muestre todas las pausas publicitarias, que se vincule a documentos VAST para anuncios dentro de cada grupo. La respuesta debería decir <code translate="No">VAST</code> o <code translate="No">VMAP</code> en las primeras líneas del XML. Otro XML de DFP es probablemente lo que llaman <strong>XML de reglas publicitarias</strong>.</li>
+		<li>Si no está utilizando FreeWheel, puede seguir las redirecciones manualmente copiando y pegando los valores en la barra de direcciones de su navegador. Buscar <code translate="No">MediaFiles</code> elementos que apuntan a fuentes de video compatibles. Está buscando archivos fuente de video MP4 o HLS (.m3u8).</li>
+		<li>Si la respuesta del anuncio apunta a un archivo que termina en <code translate="No">.js</code>, es un bloque de anuncios VPAID y no funcionará con Brightcove SSAI.</li>
 	</ul>
 	</li>
-	<li>Determine qué parámetros de la etiqueta de anuncio puede sustituir por el servidor SSAI y cuáles deben transmitirse desde el reproductor o dispositivo. Redacte la etiqueta de anuncio de forma adecuada. Para obtener más información sobre las macros de etiquetas de anuncio y la sintaxis adecuada, consulte el documento <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html#Ad_variables">SSAI Ad Configuration</a> .</li>
+	<li>Determine qué parámetros de su etiqueta publicitaria pueden ser sustituidos por el servidor SSAI y cuáles deben pasarse desde el reproductor o dispositivo. Redacte su etiqueta publicitaria de forma adecuada. Para obtener detalles sobre las macros de etiquetas de anuncios y la sintaxis adecuada, consulte la <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html#Ad_variables">Configuración de anuncios SSAI</a> documento.</li>
 	<li>
 	<p>Decida si desea emitir balizas de impresión e interacción para sus anuncios desde el reproductor cliente o desde el servidor.</p>
 
 	<ul>
-		<li>Si el reproductor solo se va a utilizar en dispositivos que no pueden utilizar un reproductor de Brightcove (web o SDK) o si está segmentando casos web en los que el bloqueo de anuncios está habilitado, desea utilizar balizas del lado del servidor.</li>
+		<li>Si su reproductor solo se va a usar en dispositivos que no pueden usar un reproductor Brightcove (web o SDK) o si está apuntando a casos web donde el bloqueo de anuncios está habilitado, desea usar balizas del lado del servidor.</li>
 		<li>Si desea emitir balizas desde el servidor en algunas plataformas pero desde el cliente en otras, deberá crear varias configuraciones de anuncios SSAI.<br/> &nbsp;</li>
 	</ul>
 
-	<p>Las configuraciones de anuncios SSAI pueden habilitar o deshabilitar las balizas del lado del servidor. Si está utilizando un reproductor de Brightcove (web o SDK), también tendrá que configurarlo en el cliente.</p>
+	<p>Las configuraciones de anuncios SSAI pueden habilitar o deshabilitar las balizas del lado del servidor. Si está utilizando un Brightcove Player (web o SDK), también tendrá que configurarlo en el cliente.</p>
 
 	<aside class="bcls-aside bcls-aside--information">Asegúrese de no emitir las balizas dos veces.</aside>
 	</li>
-	<li>Cree una configuración de anuncio SSAI (configuración de anuncio) con la etiqueta de anuncio y la configuración del indicador. Para obtener más información, consulte el documento <a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a> .</li>
-	<li>Independientemente de la plataforma a la que estés segmentando, es posible que quieras probar el reproductor web primero como prueba. Para obtener más información, consulte el documento <a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de anuncios del lado del servidor con el documento de Brightcove Player</a> .</li>
-	<li>Una vez que haya verificado que el reproductor funciona, puede dirigirse a otras plataformas consultando los documentos apropiados basados en la <a href="#Client_platforms">tabla de plataformas anterior</a>.</li>
+	<li>Cree una configuración de anuncios SSAI (configuración de anuncios) con su etiqueta de anuncio y la configuración de baliza. Para obtener más detalles, consulte la <a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuración de la configuración de anuncios del lado del servidor</a> documento.</li>
+	<li>Independientemente de la plataforma a la que se dirija, es posible que desee probar el reproductor web primero como prueba. Para obtener más detalles, consulte la <a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementación de anuncios del lado del servidor con Brightcove Player</a> documento.</li>
+	<li>Una vez que haya verificado que el reproductor funciona, puede apuntar a otras plataformas consultando los documentos apropiados basados en el <a href="#Client_platforms">mesa de la plataforma arriba</a>.</li>
 </ol>
 </section>
 </article>
 
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
       
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
       
-    </div>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
   </div>
 </div>
 
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
 
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
+<script translate="no">
   var searchBox = sajari.init({
     mode: "search-box",
     project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
+    collection: "brightcove-documentation", // Set this to your collection.
     instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
     maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
   });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
+
   
 
-</script>
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
   <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
   <script src="/assets/js/feedback.js"></script>
   
-  <script src="/assets/js/sajari-search-foot.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
   
+  <script translate="no">
+    feather.replace()
+  </script>
   <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
     a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
       background-color: lightblue;
     }
@@ -783,6 +885,5 @@ Antes de que un anuncio se pueda ver, primero debe ser transcodificado. Luego, s
     }
     </style>
 
-</body>
-
-</html>
+  </body>
+</html> 
